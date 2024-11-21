@@ -1,0 +1,42 @@
+def main():
+    # Ticket prices
+    price_A = 20
+    price_B = 15
+    price_C = 10
+
+    # Available seats
+    seats_A = 300
+    seats_B = 500
+    seats_C = 200
+
+    # Function to get valid input
+    def get_tickets(section, max_seats):
+        while True:
+            try:
+                tickets = int(input(f"Enter the number of tickets sold for section {section} (max {max_seats}): "))
+                if 0 <= tickets <= max_seats:
+                    return tickets
+                else:
+                    print(f"Please enter a number between 0 and {max_seats}.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+    # Get number of tickets sold for each section
+    tickets_A = get_tickets('A', seats_A)
+    tickets_B = get_tickets('B', seats_B)
+    tickets_C = get_tickets('C', seats_C)
+
+    # Calculate income
+    income_A = tickets_A * price_A
+    income_B = tickets_B * price_B
+    income_C = tickets_C * price_C
+    total_income = income_A + income_B + income_C
+
+    # Display the results
+    print(f"Income from section A: ${income_A}")
+    print(f"Income from section B: ${income_B}")
+    print(f"Income from section C: ${income_C}")
+    print(f"Total income generated from ticket sales: ${total_income}")
+
+if __name__ == "__main__":
+    main()
